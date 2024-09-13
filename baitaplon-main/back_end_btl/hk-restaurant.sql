@@ -27,17 +27,17 @@ SET time_zone = "+00:00";
 -- Cấu trúc bảng cho bảng `abouts`
 --
 
-CREATE TABLE `abouts` (
+CCREATE TABLE `abouts` (
   `about_id` varchar(10) NOT NULL,
   `about_img1` varchar(200) NOT NULL,
   `about_img2` varchar(200) NOT NULL,
   `about_img3` varchar(200) NOT NULL,
   `about_title` varchar(100) NOT NULL,
   `about_detail` text NOT NULL,
-  `about_time` date NOT NULL DEFAULT current_timestamp(),
-  `trang_thai` varchar(25) NOT NULL
+  `about_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `trang_thai` varchar(25) NOT NULL,
+  PRIMARY KEY (`about_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -223,7 +223,7 @@ INSERT INTO `users` (`username`, `password`, `numberphone`, `address`) VALUES
 -- Chỉ mục cho bảng `abouts`
 --
 ALTER TABLE `abouts`
-  ADD PRIMARY KEY (`about_id`);
+MODIFY `about_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 --
 -- Chỉ mục cho bảng `admin`
